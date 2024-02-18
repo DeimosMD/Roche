@@ -36,3 +36,7 @@ pub const GREATER_THAN: u8 = 34;
 pub const LESS_THAN: u8 = 35;
 pub const GREATER_OR_EQUAL: u8 = 36;
 pub const LESS_OR_EQUAL: u8 = 37;
+pub const RETURN: u8 = 38;
+pub const FUNCTION: u8 = 39;
+pub const ROCHE_FILE_HEADER: u8 = 40;
+pub const ROCHE_FILE_BODY: u8 = 41;

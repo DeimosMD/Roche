@@ -1,10 +1,12 @@
+use crate::byte_codes::*;
+
 const OPERATORS: [u8; 31] = [
     033,064,035,036,037,094,038,042,040,
     041,043,045,061,123,125,091,093,124,092,
     058,034,059,039,060,062,063,044,046,047,126,096
 ];
 
-pub fn split_into_symbols(code: Vec<u8>) -> Vec<Vec<u8>> {
+fn split_into_symbols(code: Vec<u8>) -> Vec<Vec<u8>> {
     let mut unsorted_code: Vec<u8> = code.clone();
     let mut symbols: Vec<Vec<u8>> = Vec::new();
     let mut i: u16 = 0;
@@ -51,4 +53,16 @@ fn shift_vec_left(v: Vec<u8>, i: usize) -> Vec<u8> {
         result.push(v[j+i]);
     }
     return result.into_iter().collect();
+}
+
+fn generate_bc_from_src(src: Vec<u8>) -> Vec<u8> {
+    let symbol_vec = split_into_symbols(src);
+    let mut byte_code: Vec<u8> = Vec::new();
+    byte_code.push(ROCHE_FILE_HEADER);
+    for (i, symbol) in symbol_vec.iter().enumerate() {
+        if *symbol == "fn".to_string().into_bytes() {
+
+        }
+    }
+    return None; //TODO
 }
